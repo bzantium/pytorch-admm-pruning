@@ -1,5 +1,5 @@
 # pytorch-admm-prunning
-It is a PyTorch implementation of DNN weight prunning with ADMM described in [**A Systematic DNN Weight Pruning Framework using Alternating Direction Method of Multipliers**](https://arxiv.org/abs/1804.03294).
+It is a pytorch implementation of DNN weight prunning with ADMM described in [**A Systematic DNN Weight Pruning Framework using Alternating Direction Method of Multipliers**](https://arxiv.org/abs/1804.03294).
 
 ## _Train and test_
 - You can simply run code by
@@ -7,12 +7,12 @@ It is a PyTorch implementation of DNN weight prunning with ADMM described in [**
 $ python main.py
 ```
 
-- In the paper, authors use _l2-norm regularization_ so you can easily add by
+- In the paper, authors use **l2-norm regularization** so you can easily add by
 ```
 $ python main.py --l2
 ```
 
-- Beyond this paper, if you don't want to use **predefined prunning ratio**, _admm with l1 norm regularization_ can give a great solution and can be simply tested by
+- Beyond this paper, if you don't want to use _predefined prunning ratio_, admm with **l1 norm regularization** can give a great solution and can be simply tested by
 ```
 $ python main.py --l1
 ```
