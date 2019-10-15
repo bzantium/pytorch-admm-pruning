@@ -141,8 +141,14 @@ def print_convergence(model, X, Z):
 
 
 def print_prune(model):
+    prune_param, total_param = 0, 0
     for name, param in model.named_parameters():
         if name.split('.')[-1] == "weight":
             print("[at weight {}]".format(name))
-            print("percentage of pruned: {:.4f}%".format(100 * (abs(param) == 0).sum().item()/param.numel()))
-            print("nonzero parameters after prunning: {} / {}\n".format((param != 0).sum().item(), param.numel()))
+            print("percentage of pruned: {:.4f}%".format(100 * (abs(param) == 0).sum().item() / param.numel()))
+            print("nonzero parameters after pruning: {} / {}\n".format((param != 0).sum().item(), param.numel()))
+        total_param += param.numel()
+        prune_param += (param != 0).sum().item()
+    print("total nonzero parameters after pruning: {} / {} ({:.4f}%)".
+          format(prune_param, total_param,
+                 100 * (total_param - prune_param) / total_param))
